@@ -91,8 +91,6 @@ server <- function(input, output) {
 
     req(yourdata(),input$xvar,input$yvar)
 
-    x <- yourdata()[[as.name(input$xvar)]]
-    y <- yourdata()[[as.name(input$yvar)]]
     current_formula <- paste0(input$yvar, " ~ ", paste0(input$xvar, collapse = " + "))
     f <- as.formula(current_formula)
     model <- lm(f, data = yourdata(), na.action=na.exclude)
